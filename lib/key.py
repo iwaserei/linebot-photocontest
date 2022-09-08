@@ -16,6 +16,7 @@ google_photo_client_secret = os.environ.get('GOOGLE_PHOTO_CLIENT_SECRET', None)
 google_photo_album_id = os.environ.get('GOOGLE_PHOTO_ALBUM_ID', None)
 google_photo_refresh_token = os.environ.get('GOOGLE_PHOTO_REFRESH_TOKEN', None)
 sqlalchemy_database_uri = os.environ.get('DATABASE_URI', None)
+app.logger.info("channel_secret: " + channel_secret)
 
 if channel_secret is None:
     print('Specify LINE_CHANNEL_SECRET as environment variable.')
