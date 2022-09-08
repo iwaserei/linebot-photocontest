@@ -59,9 +59,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
 db.init_app(app)
 
-app.logger.info("channel_access_token: " + channel_access_token)
-app.logger.info("channel_secret: " + channel_secret)
-
 # line bot api
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
@@ -83,6 +80,8 @@ def callback():
     try:
         app.logger.debug('This is debug message')
         handler.handle(body, signature)
+        app.logger.info("channel_access_token: " + channel_access_token)
+        app.logger.info("channel_secret: " + channel_secret)
     except InvalidSignatureError:
         abort(400)
 
