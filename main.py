@@ -65,7 +65,7 @@ handler = WebhookHandler(channel_secret)
 
 @app.route("/index", methods=['POST'])
 def index():
-    return 'OK'
+    return 200
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -83,7 +83,7 @@ def callback():
     except InvalidSignatureError:
         abort(400)
 
-    return 'OK'
+    return '200'
 
 
 """ テキストメッセージが送られた場合
